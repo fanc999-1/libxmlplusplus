@@ -44,3 +44,17 @@ pkg-ver.mak: ..\configure.ac
 	@pkg-ver.bat
 	@del ver.txt pkg-ver.bat
 	$(MAKE) /f Makefile.vc CFG=$(CFG) GENERATE_VERSIONED_FILES=1 libxml++\libxml++.rc
+
+vs$(VSVER)\$(CFG)\$(PLAT)\dom_update_namespace.exe.manifest:
+	@echo Generating $@...
+	@echo ^<?xml version='1.0' encoding='UTF-8' standalone='yes'?^>>$@
+	@echo ^<assembly xmlns='urn:schemas-microsoft-com:asm.v1' manifestVersion='1.0'^>>>$@
+	@echo ^<assemblyIdentity version='0.0.0.0' processorArchitecture='*' name='$(@B)' type='win32' /^>>>$@
+	@echo ^<trustInfo xmlns='urn:schemas-microsoft-com:asm.v3'^>>>$@
+	@echo ^<security^>>>$@
+	@echo ^<requestedPrivileges^>>>$@
+	@echo ^<requestedExecutionLevel level='asInvoker' uiAccess='false' /^>>>$@
+	@echo ^</requestedPrivileges^>>>$@
+	@echo ^</security^>>>$@
+	@echo ^</trustInfo^>>>$@
+	@echo ^</assembly^>>>$@
