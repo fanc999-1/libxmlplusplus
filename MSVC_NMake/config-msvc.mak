@@ -80,3 +80,9 @@ LIBXMLXX_LIB = vs$(VSVER)\$(CFG)\$(PLAT)\$(LIBXMLXX_LIBNAME).lib
 
 LIBXML2_LIBS = libxml2.lib
 GOBJECT_LIBS = gobject-2.0.lib gmodule-2.0.lib glib-2.0.lib
+
+!if "$(PLAT)" == "Win32"
+DOM_UPDATE_NAMESPACE_MANIFEST = vs$(VSVER)\$(CFG)\$(PLAT)\dom_update_namespace.exe.manifest
+!else
+DOM_UPDATE_NAMESPACE_MANIFEST =
+!endif
