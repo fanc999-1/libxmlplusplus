@@ -41,6 +41,7 @@ EXTRA_DIST = \
   subprojects/libxml2.wrap \
   subprojects/mm-common.wrap \
   tests/meson.build \
+  tools/build_scripts/generate-uac-manifest.py \
   tools/build_scripts/tutorial-custom-cmd.py \
   tools/conf_tests/have_exception_ptr.cc \
   untracked/README
