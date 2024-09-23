@@ -68,7 +68,7 @@ NULL=
 !if [for %d in (examples tests) do @for /f %t in ('dir /ad /b ..\%d') do @for %s in (..\%d\%t\*.cc) do @echo vs^$(VSVER)\^$(CFG)\^$(PLAT)\libxmlxx-%d\%t-%~ns.obj: %s>>libxmlxx.mak & @echo. if not exist ^$(@D)\ md ^$(@D)>>libxmlxx.mak & @echo.	^$(CXX) ^$(LIBXMLXX_EX_CFLAGS) ^$(CFLAGS) /Fo^$(@D)\%t-%~ns.obj /Fd^$(@D)\ ^$** /c>>libxmlxx.mak & @echo.>>libxmlxx.mak]
 !endif
 
-!if [for %d in (examples tests) do @for /f %t in ('dir /ad /b ..\%d') do @echo vs^$(VSVER)\^$(CFG)\^$(PLAT)\%t.exe: ^$(LIBXMLXX_LIB) ^$(%t_OBJS)>>libxmlxx.mak & @echo.	link ^$(LDFLAGS) ^$** ^$(LIBXML2_LIBS) /out:^$@>>libxmlxx.mak & @echo.>>libxmlxx.mak]
+!if [for %d in (examples tests) do @for /f %t in ('dir /ad /b ..\%d') do @if not "%t" == "dom_update_namespace" echo vs^$(VSVER)\^$(CFG)\^$(PLAT)\%t.exe: ^$(LIBXMLXX_LIB) ^$(%t_OBJS)>>libxmlxx.mak & @echo.	link ^$(LDFLAGS) ^$** ^$(LIBXML2_LIBS) /out:^$@>>libxmlxx.mak & @echo.>>libxmlxx.mak]
 !endif
 
 !if [echo.>>libxmlxx.mak]

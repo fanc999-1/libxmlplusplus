@@ -77,8 +77,12 @@ $(libxmlxx_OBJS)
 # $(dependent_objects)
 # <<
 # 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;1
+vs$(VSVER)\$(CFG)\$(PLAT)\dom_update_namespace.exe: $(LIBXMLXX_LIB) $(dom_update_namespace_OBJS) $(DOM_UPDATE_NAMESPACE_MANIFEST)
+	link $(LDFLAGS) $(dom_update_namespace_OBJS) $(LIBXMLXX_LIB) $(LIBXML2_LIBS) /out:$@
+	@if not "$(DOM_UPDATE_NAMESPACE_MANIFEST)" == "" mt /manifest $@.manifest /outputresource:$@;1
 
 clean:
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.exe.manifest
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.exe
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.dll
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.pdb

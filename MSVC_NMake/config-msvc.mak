@@ -55,3 +55,9 @@ LIBXMLXX_DLL = vs$(VSVER)\$(CFG)\$(PLAT)\$(LIBXMLXX_DLLNAME).dll
 LIBXMLXX_LIB = vs$(VSVER)\$(CFG)\$(PLAT)\$(LIBXMLXX_LIBNAME).lib
 
 LIBXML2_LIBS = libxml2.lib
+
+!if "$(PLAT)" == "Win32"
+DOM_UPDATE_NAMESPACE_MANIFEST = vs$(VSVER)\$(CFG)\$(PLAT)\dom_update_namespace.exe.manifest
+!else
+DOM_UPDATE_NAMESPACE_MANIFEST =
+!endif
