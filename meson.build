@@ -157,6 +157,7 @@ dist_build_scripts_py = script_dir / 'dist-build-scripts.py'
 
 # xmlxx's own script files.
 xmlxx_script_dir = project_source_root / 'tools' / 'build_scripts'
+generate_uac_manifest_py = xmlxx_script_dir / 'generate-uac-manifest.py'
 tutorial_custom_cmd_py = xmlxx_script_dir / 'tutorial-custom-cmd.py'
 
 if maintainer_mode
