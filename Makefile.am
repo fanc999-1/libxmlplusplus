@@ -41,6 +41,7 @@ EXTRA_DIST = \
   subprojects/glibmm-2.4.wrap \
   subprojects/libxml2_cmake.wrap \
   tests/meson.build \
+  tools/build_scripts/generate-uac-manifest.py \
   tools/build_scripts/tutorial-custom-cmd.py \
   tools/conf_tests/have_exception_ptr.cc \
   untracked/README
